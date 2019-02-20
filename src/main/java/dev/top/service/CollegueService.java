@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import dev.top.entities.Avis;
+import dev.top.entities.AvisUtils;
 import dev.top.entities.Collegue;
 import dev.top.repos.CollegueRepo;
 
@@ -17,5 +19,17 @@ public class CollegueService {
 	public List<Collegue> findAll() {
 
 		return collegueRepo.findAll();
+	}
+
+	public Collegue updateScore(String pseudo, AvisUtils avis) {
+
+		Collegue collegueToUpdate = collegueRepo.findByPseudo(pseudo);
+
+		if (avis.getAction() == Avis.AIMER) {
+			collegueToUpdate.setScore(collegueToUpdate.getScore() + 10);
+		} else if (avis.getAction() == Avis.DETESTER) {
+			collegueToUpdate.setScore(collegueToUpdate.getScore() - 5);
+		}
+		return collegueRepo.save(collegueToUpdate);
 	}
 }
