@@ -1,6 +1,6 @@
-package dev.top.entities;
+package dev.top.controller.vm;
 
-public class AvisUtils {
+public class AvisVM {
 
 	private Avis action;
 
