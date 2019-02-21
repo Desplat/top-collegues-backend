@@ -18,6 +18,8 @@ public class Collegue {
 
 	private String photoUrl;
 
+	private String matricule;
+
 	public Collegue() {
 
 	}
@@ -59,5 +61,13 @@ public class Collegue {
 
 	public void setPhotoUrl(String photoUrl) {
 		this.photoUrl = photoUrl;
+	}
+
+	public String getMatricule() {
+		return matricule;
+	}
+
+	public void setMatricule(String matricule) {
+		this.matricule = matricule;
 	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import dev.top.controller.vm.Avis;
 import dev.top.controller.vm.AvisVM;
@@ -31,5 +32,13 @@ public class CollegueService {
 			collegueToUpdate.setScore(collegueToUpdate.getScore() - 5);
 		}
 		return collegueRepo.save(collegueToUpdate);
+	}
+
+	public Collegue addCollegue(Collegue collegue) {
+
+		RestTemplate restTemplate = new RestTemplate();
+		String resourceUrl = "https://tommy-sjava.cleverapps.io/collegues";
+		Collegue collegueTrouve = restTemplate.getForObject(resourceUrl, Collegue.class);
+		return collegueTrouve;
 	}
 }
