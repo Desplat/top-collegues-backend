@@ -3,6 +3,7 @@ package dev.top.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.top.controller.vm.AvisVM;
+import dev.top.controller.vm.MatriculeVM;
 import dev.top.entities.Collegue;
 import dev.top.service.CollegueService;
 
@@ -37,9 +39,8 @@ public class CollegueCtrl {
 	}
 
 	@PostMapping
-	public Collegue addCollegue(@RequestBody Collegue collegue) {
+	public ResponseEntity<?> receiveMatricule(@RequestBody MatriculeVM matricule) {
 
-		System.out.println("HEREEEEEEE");
-		return this.collegueService.addCollegue(collegue);
+		return this.collegueService.addCollegue(matricule);
 	}
 }

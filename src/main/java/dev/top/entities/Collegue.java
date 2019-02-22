@@ -21,7 +21,6 @@ public class Collegue {
 	private String matricule;
 
 	public Collegue() {
-
 	}
 
 	public Collegue(int score, String pseudo, String photoUrl) {
@@ -29,6 +28,12 @@ public class Collegue {
 		this.score = score;
 		this.pseudo = pseudo;
 		this.photoUrl = photoUrl;
+	}
+
+	public Collegue(int score, String pseudo, String photoUrl, String matricule) {
+
+		this(score, pseudo, photoUrl);
+		this.matricule = matricule;
 	}
 
 	public Integer getId() {
